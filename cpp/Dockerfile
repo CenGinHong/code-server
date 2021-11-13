@@ -10,7 +10,7 @@ sudo apt-get -y upgrade
 COPY ./vs-demo-0.0.1.vsix /data/
 RUN sudo apt-get -y install g++ && \
 sudo /usr/bin/code-server --install-extension /data/vs-demo-0.0.1.vsix && \
-sudo /usr/bin/code-server --install-extension ms-vscode.cpptools
+sudo /usr/bin/code-server --install-extension ms-vscode.cpptools-linux
 EXPOSE 8080
 WORKDIR /home/coder/project
 ENTRYPOINT ["/usr/bin/entrypoint.sh", "--bind-addr", "0.0.0.0:8080", "."]
