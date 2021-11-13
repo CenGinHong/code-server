@@ -2,11 +2,12 @@ FROM codercom/code-server:latest
 
 RUN sudo sed -i "s/deb.debian.org/mirrors.aliyun.com/g" /etc/apt/sources.list   && \
 sudo apt-get -y update && \
-sudo apt-get -y upgrade && \
-sudo apt-get -y install default-jdk maven gradle python3.9 python3-pip 
+sudo apt-get -y upgrade
+
 
 COPY ./vs-demo-0.0.1.vsix /data/
-RUN sudo /usr/bin/code-server --install-extension /data/vs-demo-0.0.1.vsix && \
+RUN sudo apt-get -y install g++ default-jdk maven gradle python3.9 python3-pip  && \
+sudo /usr/bin/code-server --install-extension /data/vs-demo-0.0.1.vsix && \
 sudo /usr/bin/code-server --install-extension vscjava.vscode-java-pack && \
 sudo /usr/bin/code-server --install-extension formulahendry.code-runner && \
 sudo /usr/bin/code-server --install-extension ms-python.python && \
