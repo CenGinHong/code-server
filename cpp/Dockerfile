@@ -7,9 +7,9 @@ sudo apt-get -y update && \
 sudo apt-get -y upgrade
 
 
-COPY ./vs-demo-0.0.1.vsix /data/
+COPY ./vs-demo-0.0.2.vsix /data/
 RUN sudo apt-get -y install g++ && \
-sudo /usr/bin/code-server --install-extension /data/vs-demo-0.0.1.vsix && \
+sudo /usr/bin/code-server --install-extension /data/vs-demo-0.0.2.vsix && \
 sudo /usr/bin/code-server --install-extension ms-vscode.cpptools
 EXPOSE 8080
 WORKDIR /home/coder/project
